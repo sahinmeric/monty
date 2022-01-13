@@ -62,6 +62,7 @@ void _pint(stack_t **stack, unsigned int line_ctr);
 /*aux*/
 int _isdigit(char *c);
 void free_dlistint(stack_t *stack);
+void cleanStack(stack_t **stack);
 
 /*error handling*/
 void push_error(FILE *fd, char *line, stack_t *stack, int line_ctr);

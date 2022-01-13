@@ -41,3 +41,20 @@ void free_dlistint(stack_t *stack)
 		free(current);
 	}
 }
+
+/**
+ * cleanStack - Frees mallocs and close de files
+ * @stack: Stack
+ */
+void cleanStack(stack_t **stack)
+{
+	stack_t *current = *stack;
+
+	for (; current; current = *stack)
+	{
+		*stack = (*stack)->next;
+		free(current);
+	}
+	fclose(global.fptr);
+	free(global.line);
+}
