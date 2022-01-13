@@ -61,6 +61,7 @@ void _pall(stack_t **stack, unsigned int n);
 void _pint(stack_t **stack, unsigned int line_ctr);
 void _pop(stack_t **stack, unsigned int line_ctr);
 void _swap(stack_t **stack, unsigned int line_ctr);
+void _add(stack_t **stack, unsigned int line_ctr);
 /*aux*/
 int _isdigit(char *c);
 void free_dlistint(stack_t *stack);

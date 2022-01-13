@@ -43,3 +43,24 @@ void _swap(stack_t **stack, unsigned int line_ctr)
 	current->n = current->next->n;
 	current->next->n = temp;
 }
+/**
+ * _add - function add two integer
+ * @stack: Stack list
+ * @line_ctr: Number of the line
+ */
+void _add(stack_t **stack, unsigned int line_ctr)
+{
+	stack_t *current = NULL;
+	int sum = 0;
+
+	if (!*stack || !(*stack)->next)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_ctr);
+		cleanStack(stack);
+		exit(EXIT_FAILURE);
+	}
+	current = *stack;
+	sum = current->n + current->next->n;
+	current->next->n = sum;
+	_pop(stack, line_ctr);
+}
