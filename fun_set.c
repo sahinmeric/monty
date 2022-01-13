@@ -60,3 +60,19 @@ void _pall(stack_t **stack, unsigned int n)
 		current = current->next;
 	}
 }
+/**
+ * _pint - prints the value at the top of the stack.
+ * @stack: Stack list
+ * @line_count: Number of the line
+ */
+void _pint(stack_t **stack, unsigned int line_ctr)
+{
+	if (!*stack || !stack)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't pint, stack empty\n", line_count);
+		cleanStack(stack);
+		exit(EXIT_FAILURE);
+	}
+	else
+		dprintf(STDOUT_FILENO, "%d\n", (*stack)->n);
+}
