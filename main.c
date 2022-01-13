@@ -83,6 +83,7 @@ int get_op(stack_t **stack, char *line, char *tkn, int line_count)
 	{"pop", _pop},
 	{"swap", _swap},
 	{"add", _add},
+	{"nop", _nop},
 	{NULL, NULL}
 	};
 
