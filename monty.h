@@ -64,6 +64,7 @@ void _swap(stack_t **stack, unsigned int line_ctr);
 void _add(stack_t **stack, unsigned int line_ctr);
 void _nop(stack_t **stack, unsigned int line_ctr);
 void _sub(stack_t **stack, unsigned int line_ctr);
+void _div(stack_t **stack, unsigned int line_ctr);
 
 /*aux*/
 int _isdigit(char *c);
