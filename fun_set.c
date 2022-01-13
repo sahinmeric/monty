@@ -63,7 +63,7 @@ void _pall(stack_t **stack, unsigned int n)
 /**
  * _pint - prints the value at the top of the stack.
  * @stack: Stack list
- * @line_count: Number of the line
+ * @line_ctr: line ctr
  */
 void _pint(stack_t **stack, unsigned int line_ctr)
 {
