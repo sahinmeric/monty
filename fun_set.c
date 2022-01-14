@@ -16,7 +16,7 @@ stack_t *new_Node(int n)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	new->n = atoi(n);
+	new->n = n;
 	new->next = NULL;
 	new->prev = NULL;
 
