@@ -52,6 +52,8 @@ void _pall(stack_t **stack, unsigned int n)
 	stack_t *current = NULL;
 	(void)n;
 
+	if (!*stack)
+		return;
 	current = *stack;
 
 	while (current != NULL)
