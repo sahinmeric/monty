@@ -50,9 +50,9 @@ void read_op(char *argv)
 	tkn = strtok(NULL, " \n\t\r");
 	result = get_op(&stack, line, tkn, line_count);
 	if (result == 1)
-		push_error(global.fptr, global.line, stack, line_count);
+		int_error(global.fptr, global.line, stack, line_count);
 	else if (result == 2)
-		push_error(global.fptr, global.line, stack, line_count);
+		ins_error(global.fptr, global.line, stack, line, line_count);
 	}
 	free(global.line);
 	free_dlistint(stack);
@@ -101,7 +101,7 @@ int get_op(stack_t **stack, char *line, char *tkn, int line_count)
 				value = atoi(tkn);
 			}
 			else
-			return (1);
+				return (1);
 		}
 	op[i].f(stack, (unsigned int)line_count);
 	break;

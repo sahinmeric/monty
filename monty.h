@@ -73,6 +73,7 @@ void cleanStack(stack_t **stack);
 
 /*error handling*/
 void push_error(FILE *fd, char *line, stack_t *stack, int line_ctr);
-void ins_error(FILE *fd, char *line, stack_t *stack, char *line_ctr, int item);
+void ins_error(FILE *fd, char *line, stack_t *stack, char *count, int item);
+void int_error(FILE *fd, char *line, stack_t *stack, int line_ctr);
 
 #endif /*MONTY_H*/
