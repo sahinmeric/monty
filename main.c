@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-	read_op(argv[1]);
+		read_op(argv[1]);
 	}
 return (EXIT_SUCCESS);
 }
@@ -32,31 +32,33 @@ void read_op(char *argv)
 	char *line = NULL, *tkn = NULL; /*line => opcode*/
 	stack_t *stack = NULL;
 	int result = 0, line_count = 0;
-	/*read the file*/
+
 	global.fptr = fopen(argv, "r"); /*fopen returns file pointer or null */
 	if (global.fptr)
 	{
-	while (getline(&global.line, &bufsize, global.fptr) != -1)
-	{
-		line_count++;
-		line = strtok(global.line, " \n\t\r");
-	if (line == NULL)
-	{
-		free(line);
-		continue;
-	}
-	else if (*line == '#') /*if the line is comment*/
-		continue;
-	tkn = strtok(NULL, " \n\t\r");
-	result = get_op(&stack, line, tkn, line_count);
-	if (result == 1)
-		int_error(global.fptr, global.line, stack, line_count);
-	else if (result == 2)
-		ins_error(global.fptr, global.line, stack, line, line_count);
-	}
-	free(global.line);
-	free_dlistint(stack);
-	fclose(global.fptr);
+		while (getline(&global.line, &bufsize, global.fptr) != -1)
+		{
+			line_count++;
+			line = strtok(global.line, " \n\t\r");
+		if (line == NULL)
+		{
+			free(line);
+			continue;
+		}
+		else if (*line == '#') /*if the line is comment*/
+			continue;
+
+		tkn = strtok(NULL, " \n\t\r");
+		result = get_op(&stack, line, tkn, line_count);
+
+		if (result == 1)
+			int_error(global.fptr, global.line, stack, line_count);
+		else if (result == 2)
+			ins_error(global.fptr, global.line, stack, line, line_count);
+		}
+		free(global.line);
+		free_dlistint(stack);
+		fclose(global.fptr);
 	}
 	else
 	{
