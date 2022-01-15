@@ -69,7 +69,7 @@ void _pall(stack_t **stack, unsigned int n)
  */
 void _pint(stack_t **stack, unsigned int line_ctr)
 {
-	if (!*stack || !stack)
+	if (*stack == NULL || stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_ctr);
 		cleanStack(stack);
