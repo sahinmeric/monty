@@ -26,7 +26,7 @@ void _sub(stack_t **stack, unsigned int line_ctr)
  */
 void _div(stack_t **stack, unsigned int line_ctr)
 {
-	stack_t *curerent = NULL;
+	stack_t *current = NULL;
 	int div = 0;
 
 	if (!*stack || !(*stack)->next)
@@ -41,9 +41,25 @@ void _div(stack_t **stack, unsigned int line_ctr)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
-	curerent = *stack;
-	div = curerent->next->n / curerent->n;
-	curerent->next->n = div;
+	current = *stack;
+	div = current->next->n / current->n;
+	current->next->n = div;
 	_pop(stack, line_ctr);
 
+}
+void _mul(stack_t **stack, unsigned int line_ctr)
+{
+	stack_t *current = NULL;
+	int mul = 0;
+	
+	if (!*stack || !(*stack)->next)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_ctr);
+		cleanStack(stack);
+		exit(EXIT_FAILURE);
+	}
+	current = *stack;
+	mul = current->next->n * current->n;
+	_pop(stack, line_ctr);
+	current->next->n = mul;	
 }
